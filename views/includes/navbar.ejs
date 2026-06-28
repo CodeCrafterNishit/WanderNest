@@ -1,8 +1,8 @@
 <style>
   /*search box*/
-.search-input {
-  border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
+.search-input{
+    border-radius:25px;
+    padding:.55rem 1.5rem;
 }
 
 
@@ -24,6 +24,53 @@
   font-size: medium;
 }
 
+/* ---------------- Navbar Responsive ---------------- */
+
+@media (max-width:768px){
+
+  .navbar{
+    height:auto;
+    padding:0.8rem 0;
+  }
+
+  .navbar-nav{
+    text-align:center;
+  }
+
+  .search-form{
+    width:100%;
+    margin:1rem 0;
+  }
+
+  .search-input{
+    width:100%;
+    margin-bottom:.7rem;
+  }
+
+  .btn-search{
+    width:100%;
+    justify-content:center;
+  }
+
+  .navbar-nav.ms-auto{
+    margin-top:.5rem;
+  }
+
+}
+
+@media (max-width:576px){
+
+  .search-form{
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+  }
+
+  .search-input{
+    padding:.6rem 1rem;
+  }
+
+}
 
 
 </style>
@@ -45,13 +92,13 @@
       </div>
 
       <div class="navbar-nav ms-auto">
-    <form class="d-flex" role="search">
+    <form class="d-flex search-form" role="search">
       <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" aria-label="Search"/>
       <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
     </form>
   </div>
 
-      <div class="navbar-nav ms-auto">
+     <div class="navbar-nav mx-auto">
         <a class="nav-link" href="/listings/new">Add new Home</a>
         <%if(!currUser){%>
           <a class="nav-link" aria-current="page" href="/signup"><b>Sign up</b></a>
