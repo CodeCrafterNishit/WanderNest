@@ -1,166 +1,121 @@
 <style>
-/* Search Box */
+  /*search box*/
+.search-input {
+  border-radius: 25px;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
 .search-form{
     width:100%;
-    max-width:450px;
+    max-width:430px;
+    margin:0 auto;
 }
 
-.search-input{
-    flex:1;
-    border-radius:25px;
-    padding:.55rem 1.5rem;
-}
 
-.btn-search{
-    background-color:rgb(248,50,50);
-    color:white;
-    border-radius:25px;
-    padding:0.55rem 1.5rem;
-    border:none;
+.btn-search {
+  background-color: rgb(248, 50, 50);
+  color: white;
+  border-radius: 25rem;
+  padding: 0 1.5rem 0 1.5rem;
 }
 
 .btn-search:hover{
-    background-color:rgb(248,50,50);
-    color:white;
+  background-color: rgb(248, 50, 50);
+  color: white;
 }
 
 .btn-search i{
-    margin-right:.5rem;
+  display: inline;
+  margin-right: 0.5rem;
+  font-size: medium;
 }
 
-/* Desktop Alignment */
 
-.navbar-brand{
-    margin-right:1rem;
-}
 
-.search-form{
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.navbar-nav:last-child{
-    margin-left:auto;
-}
-
-/* ---------------- Responsive ---------------- */
+/* ---------------- Navbar Responsive ---------------- */
 
 @media (max-width:768px){
 
-    .navbar{
-        padding:.75rem 1rem;
-    }
+  .navbar{
+    height:auto;
+    padding:0.8rem 0;
+  }
 
-    .navbar-collapse{
-        text-align:center;
-        padding-top:1rem;
-    }
+  .navbar-nav{
+    text-align:center;
+  }
 
-    .search-form{
-        max-width:100%;
-        margin:1rem 0;
-    }
+  .search-form{
+    width:100%;
+    margin:1rem 0;
+  }
 
-    .navbar-nav{
-        margin:.5rem 0;
-    }
+  .search-input{
+    width:100%;
+    margin-bottom:.7rem;
+  }
+
+  .btn-search{
+    width:100%;
+    justify-content:center;
+  }
+
+  .navbar-nav.ms-auto{
+    margin-top:.5rem;
+  }
 
 }
 
 @media (max-width:576px){
 
-    .search-form{
-        display:flex;
-        flex-direction:column;
-        gap:.7rem;
-    }
+  .search-form{
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+  }
 
-    .search-input{
-        margin-right:0 !important;
-        width:100%;
-    }
-
-    .btn-search{
-        width:100%;
-    }
+  .search-input{
+    padding:.6rem 1rem;
+  }
 
 }
+
+
 </style>
 
-
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-
   <div class="container-fluid">
-
-    <!-- Logo -->
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-regular fa-compass"></i>
-    </a>
-
-    <!-- Mobile Toggle -->
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup">
-
+      data-bs-target="#navbarNavAltMarkup"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-      <!-- Left -->
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
       </div>
 
-      <!-- Center Search -->
-      <form class="d-flex search-form" role="search">
-
-        <input
-          class="form-control me-2 search-input"
-          type="search"
-          placeholder="Search destinations"
-          aria-label="Search">
-
-        <button class="btn btn-search" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          Search
-        </button>
-
-      </form>
-
-      <!-- Right -->
-      <div class="navbar-nav ms-auto">
-
-        <a class="nav-link" href="/listings/new">
-          Add new Home
-        </a>
-
-        <% if(!currUser){ %>
-
-          <a class="nav-link" href="/signup">
-            <b>Sign up</b>
-          </a>
-
-          <a class="nav-link" href="/login">
-            <b>Log in</b>
-          </a>
-
-        <% } %>
-
-        <% if(currUser){ %>
-
-          <a class="nav-link" href="/logout">
-            Log out
-          </a>
-
-        <% } %>
-
-      </div>
-
-    </div>
-
+      <div class="mx-auto">
+    <form class="d-flex search-form" role="search">
+      <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" aria-label="Search"/>
+      <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
   </div>
 
+     <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add new Home</a>
+        <%if(!currUser){%>
+          <a class="nav-link" aria-current="page" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+        <%}%>
+        <%if(currUser){%>
+        <a class="nav-link" href="/logout">Log out</a>
+        <%}%>
+      </div>
+    </div>
+  </div>
 </nav>
