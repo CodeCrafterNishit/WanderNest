@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate") %>
+
+<div
+  class="container d-flex align-items-center justify-content-center"
+  style="min-height: 80vh"
+>
+  <div class="text-center">
+    <!-- Error Code -->
+    <h1 class="display-1 fw-bold text-danger"><%= err.statusCode || 500 %></h1>
+
+    <!-- Error Message -->
+    <h3 class="mb-3"><%= err.message || "Something went wrong!" %></h3>
+
+    <!-- Optional Description -->
+    <p class="text-muted">
+      Oops! The page you're looking for doesn’t exist or something broke.
+    </p>
+
+    <!-- Buttons -->
+    <div class="mt-4">
+      <a href="/listings" class="btn btn-dark me-2">Go to Listings</a>
+      <button onclick="history.back()" class="btn btn-outline-secondary">
+        Go Back
+      </button>
+    </div>
+  </div>
+</div>
